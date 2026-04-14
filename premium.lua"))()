@@ -1,1 +1,23 @@
-loadstring(game:HttpGet("https://pastefy.app/VSfLwIox/raw"))()
+-- premiumChiyo Loader (Stable Version)
+
+local premiumChiyoURL = "https://pastefy.app/VSfLwIox/raw"
+
+local function runPremiumChiyo()
+    local success, response = pcall(function()
+        return game:HttpGet(premiumChiyoURL)
+    end)
+
+    if success and response and #response > 0 then
+        local scriptFunc = loadstring(response)
+        if scriptFunc then
+            print("✅ premiumChiyo berhasil dijalankan!")
+            scriptFunc()
+        else
+            warn("❌ Gagal compile script!")
+        end
+    else
+        warn("❌ Gagal mengambil script dari Pastefy!")
+    end
+end
+
+runPremiumChiyo()
